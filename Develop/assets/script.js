@@ -2,7 +2,7 @@ var currentDay = document.querySelector('#currentDay');
 var currentTime = moment().format('HH')
 var scheduleContainer = $('.container')
 currentDay.textContent = moment().format("dddd, MMMM Do");
-
+var saveButton = $('.saveBtn')
 
 function currentHour () {
     for (let i = 0; i < 17; i++) {
@@ -31,6 +31,22 @@ currentHour();
 //TODO: CREATE LOCAL STORAGE TO CONTAIN USER INPUTS IN THE TEXTAREA TAGS.
     //STORE TEXTAREA INPUT ONCE SAVE BUTTON IS PRESSED
     //TODO: ON.CLICK ANY SAVEBTN STORAGE IS UPDATED
+
+
+    // function test (){
+        
+    //     saveButton.addEventListener("click")
+    //     console.log("button clicked")
+        
+    // }
+
+
+    // test();
+// function test() {
+//     var input = $(textarea);
+//     localStorage.setItem("test", input.value);
+//     var storedTest = localStorage.getItem("test");
+// }
 
 
 
