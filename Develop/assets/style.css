@@ -17,11 +17,15 @@ textarea {
 /* style applied to the top of page, 'work day scheduler' */
 .jumbotron {
   text-align: center;
-  background-color: transparent;
-  color: black;
+  background-color: #606C38;
+  color: #DDA15E;
   border-radius: 0;
-  border-bottom: 10px solid black;
+  border-bottom: 10px solid #DDA15E;
 }
+.jumbotron p {
+  color: white;
+}
+
 .description {
   white-space: pre-wrap;
 }
@@ -45,17 +49,17 @@ textarea {
 }
 /* style that applies to the text box of any hours that have passed */
 .past {
-  background-color: #d3d3d3;
-  color: white;
+  background-color: wheat;
+  color: black;
 }
 /* style that applies to the text box of the current hour  */
 .present {
-  background-color: #ff6961;
+  background-color:#bc6c25;
   color: white;
 }
 /* style that applies to the text box of any hours yet to pass */
 .future {
-  background-color: #77dd77;
+  background-color:#A65831;
   color: white;
 }
 /* style applied to the save buttons on each time block  */
@@ -63,12 +67,27 @@ textarea {
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  background-color: #06aed5;
-  color: white;
+  background-color: #283618;
+  color: #DDA15E;
   height: -webkit-fill-available;
 }
 /* hover effects for button  */
 .saveBtn i:hover {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
+}
+
+.sectionCon {
+  display: flex;
+  justify-content: center;
+
+}
+
+.legend {
+  max-width: 30%;
+  text-align: center;
+  margin-right: 35%;
+  margin-left: 35%;
+  border: 3px dashed black;
+  border-radius: 10px;
 }
