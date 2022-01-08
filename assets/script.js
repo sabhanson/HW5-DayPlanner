@@ -1,16 +1,16 @@
+//variables
 var currentDay = document.querySelector('#currentDay');
-var currentTime = moment().format('HH')
-var scheduleContainer = $('.container')
-currentDay.textContent = moment().format("dddd, MMMM Do");
-var nineAM = document.querySelector('.nineAM')
-var tenAM = document.querySelector('.tenAM')
-var elevenAM = document.querySelector('.elevenAM')
-var twelvePM = document.querySelector('.twelvePM')
-var onePM = document.querySelector('.onePM')
-var twoPM = document.querySelector('.twoPM')
-var threePM = document.querySelector('.threePM')
-var fourPM = document.querySelector('.fourPM')
-var fivePM = document.querySelector('.fivePM')
+var currentTime = moment().format('HH');
+var scheduleContainer = $('.container');
+var nineAM = document.querySelector('.nineAM');
+var tenAM = document.querySelector('.tenAM');
+var elevenAM = document.querySelector('.elevenAM');
+var twelvePM = document.querySelector('.twelvePM');
+var onePM = document.querySelector('.onePM');
+var twoPM = document.querySelector('.twoPM');
+var threePM = document.querySelector('.threePM');
+var fourPM = document.querySelector('.fourPM');
+var fivePM = document.querySelector('.fivePM');
 var saveBtn1 = document.querySelector('.btn1');
 var saveBtn2 = document.querySelector('.btn2');
 var saveBtn3 = document.querySelector('.btn3');
@@ -20,25 +20,13 @@ var saveBtn6 = document.querySelector('.btn6');
 var saveBtn7 = document.querySelector('.btn7');
 var saveBtn8 = document.querySelector('.btn8');
 var saveBtn9 = document.querySelector('.btn9');
+var boxHour = document.getElementsByTagName("textarea");
 
-console.log(currentTime);
+//change the text content of current day to display live day
+currentDay.textContent = moment().format("dddd, MMMM Do");
 
-//function to check current hour vs global hour to change background color
-function currentHour () {
-    for (let i = 0; i < 17; i++) {
-        var eachHour = scheduleContainer.children().eq(i).children().eq(1).data('time');
-        if (eachHour < currentTime) {
-            scheduleContainer.children().eq(i).children().eq(1).addClass('past');
-        } else if (eachHour == currentTime) {
-            scheduleContainer.children().eq(i).children().eq(1).addClass('present');
-        } else {
-            scheduleContainer.children().eq(i).children().eq(1).addClass('future')
-        }
-    }
-};
-currentHour();
-
-
+//functions for localStorage for each textbox/button
+//Still thinking I could reduce this down to one function that would iterate through all of the buttons... button[i]???
 
 //local storage for 9am box
 function save9AM() {
@@ -142,3 +130,21 @@ get2PM();
 get3PM();
 get4PM();
 get5PM();
+
+
+// function to check current hour vs global hour to change background color
+// had a 2am epiphany and rewrote this section!!!!! 
+function currentHour () {
+    for (let i = 0; i < boxHour.length; i++) {
+        var eachHour = boxHour[i].dataset.time;
+        if (eachHour < currentTime) {
+            boxHour[i].classList.add("past")
+        } else if (eachHour == currentTime) {
+            boxHour[i].classList.add("present");
+        } else if (eachHour > currentTime) {
+            boxHour[i].classList.add("future");
+        }
+    }
+};
+
+currentHour();
