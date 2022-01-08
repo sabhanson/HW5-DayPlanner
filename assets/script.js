@@ -1,18 +1,3 @@
-//ACCEPTANCE CRIT
-    // GIVEN I am using a daily planner to create a schedule
-    // WHEN I open the planner
-    // THEN the current day is displayed at the top of the calendar
-    // WHEN I scroll down
-    // THEN I am presented with timeblocks for standard business hours
-    // WHEN I view the timeblocks for that day
-    // THEN each timeblock is color coded to indicate whether it is in the past, present, or future
-    // WHEN I click into a timeblock
-    // THEN I can enter an event
-    // WHEN I click the save button for that timeblock
-    // THEN the text for that event is saved in local storage
-    // WHEN I refresh the page
-    // THEN the saved events persist
-
 var currentDay = document.querySelector('#currentDay');
 var currentTime = moment().format('HH')
 var scheduleContainer = $('.container')
@@ -36,7 +21,9 @@ var saveBtn7 = document.querySelector('.btn7');
 var saveBtn8 = document.querySelector('.btn8');
 var saveBtn9 = document.querySelector('.btn9');
 
+console.log(currentTime);
 
+//function to check current hour vs global hour to change background color
 function currentHour () {
     for (let i = 0; i < 17; i++) {
         var eachHour = scheduleContainer.children().eq(i).children().eq(1).data('time');
@@ -51,20 +38,6 @@ function currentHour () {
 };
 currentHour();
 
-//TEST FUNCTION TO NOT COPY ISAAC
-// function currentHour () {
-//     for (let i = 0; i < 17; i++) {
-//         var containerDiv = scheduleContainer;
-//         var innerDivs = containerDiv.get
-//         if (eachHour < currentTime) {
-//             scheduleContainer.children().eq(i).children().eq(1).addClass('past');
-//         } else if (eachHour == currentTime) {
-//             scheduleContainer.children().eq(i).children().eq(1).addClass('present');
-//         } else {
-//             scheduleContainer.children().eq(i).children().eq(1).addClass('future')
-//         }
-//     }
-// };
 
 
 //local storage for 9am box
@@ -117,19 +90,49 @@ saveBtn5.addEventListener('click', save1PM);
 function get1PM() {
     onePM.value = JSON.parse(localStorage.getItem('1pmVal'));
 }
+//local storage for 2pm box
+function save2PM() {
+    var twoInput = twoPM.value;
+    localStorage.setItem('2pmVal',JSON.stringify(twoInput));
+}
+saveBtn6.addEventListener('click', save2PM);
+
+function get2PM() {
+    twoPM.value = JSON.parse(localStorage.getItem('2pmVal'));
+}
+//local storage for 3pm box
+function save3PM() {
+    var threeInput = threePM.value;
+    localStorage.setItem('3pmVal',JSON.stringify(threeInput));
+}
+saveBtn7.addEventListener('click', save3PM);
+
+function get3PM() {
+    threePM.value = JSON.parse(localStorage.getItem('3pmVal'));
+}
+//local storage for 4pm box
+function save4PM() {
+    var fourInput = fourPM.value;
+    localStorage.setItem('4pmVal',JSON.stringify(fourInput));
+}
+saveBtn8.addEventListener('click', save4PM);
+
+function get4PM() {
+    fourPM.value = JSON.parse(localStorage.getItem('4pmVal'));
+}
+//local storage for 5pm box
+function save5PM() {
+    var fiveInput = fivePM.value;
+    localStorage.setItem('5pmVal',JSON.stringify(fiveInput));
+}
+saveBtn9.addEventListener('click', save5PM);
+
+function get5PM() {
+    fivePM.value = JSON.parse(localStorage.getItem('5pmVal'));
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
+//functions for each hour to populate textarea
 get9AM();
 get10AM();
 get11AM();
@@ -139,36 +142,3 @@ get2PM();
 get3PM();
 get4PM();
 get5PM();
-
-
-//ON PAGE LOAD, ALL STORED INPUT WILL BE DISPLAYED
-//DATE WILL SHOW AT THE TOP
-
-
-    
-//TODO: TIMER FUNCTION THAT CHECKS THE MOMENT TIME EVERY MILLISECOND TO PROVIDE LIVE UPDATES AS THE HOURS PASS
-    
-    
-//TODO: CREATE LOCAL STORAGE TO CONTAIN USER INPUTS IN THE TEXTAREA TAGS.
-    //STORE TEXTAREA INPUT ONCE SAVE BUTTON IS PRESSED
-    //TODO: ON.CLICK ANY SAVEBTN STORAGE IS UPDATED
-
-
-    // function test (){
-        
-    //     saveButton.addEventListener("click")
-    //     console.log("button clicked")
-        
-    // }
-
-
-    // test();
-// function test() {
-//     var input = $(textarea);
-//     localStorage.setItem("test", input.value);
-//     var storedTest = localStorage.getItem("test");
-// }
-
-
-
-

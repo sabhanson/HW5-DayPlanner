@@ -22,6 +22,7 @@ textarea {
   border-radius: 0;
   border-bottom: 10px solid #DDA15E;
 }
+/* style applied to the p elements in the jumbotron */
 .jumbotron p {
   color: white;
 }
@@ -77,17 +78,33 @@ textarea {
   transition: all 0.3s ease-in-out;
 }
 
-.sectionCon {
+.legend {
   display: flex;
-  justify-content: center;
-
+  padding-top: 3px;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 20px;
+  margin: 0 20% 0 20%;
+  font-weight: 800;
 }
 
-.legend {
-  max-width: 30%;
-  text-align: center;
-  margin-right: 35%;
-  margin-left: 35%;
-  border: 3px dashed black;
+.pastHr {
+  background-color: wheat;
+  color: black;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.currentHr {
+  background-color: #bc6c25;
+  color: white;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.futureHr {
+  background-color: #A65831;
+  color: white;
+  padding: 5px;
   border-radius: 10px;
 }
